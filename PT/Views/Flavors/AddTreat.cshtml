@@ -1,0 +1,20 @@
+@{
+    Layout = "_Layout";
+}
+@model PT.Models.Flavor
+
+<h1>Add a treat to a flavor</h1>
+
+<h3>Add a treat that fits this flavor: @Html.DisplayFor(model => model.FlavorName)</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.Label("Select Treat")
+    @Html.DropDownList("TreatId")
+
+    <input type="submit" value="Save" class="btn btn-success btn-sm" />
+}
+<br>
+<p>@Html.ActionLink("FlavorTown", "Index", null, null, new {@class="btn btn-light btn-sm"})</p>
