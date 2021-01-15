@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PTT.Models;
-
-namespace PTT
+using Microsoft.EntityFrameworkCore;
+using PT.Models;
+using Microsoft.AspNetCore.Identity;
+namespace PT
 {
     public class Startup
     {
@@ -26,22 +25,22 @@ namespace PTT
             services.AddMvc();
 
             services.AddEntityFrameworkMySql()
-              .AddDbContext<PTTContext>(options => options
-              .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+                .AddDbContext<PTContext>(options => options
+                .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
-            services.AddIdentity<User, IdentityRole>()
-                      .AddEntityFrameworkStores<PTTContext>()
-                      .AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<PTContext>()
+            .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
-          {
-              options.Password.RequireDigit = false;
-              options.Password.RequiredLength = 0;
-              options.Password.RequireLowercase = false;
-              options.Password.RequireNonAlphanumeric = false;
-              options.Password.RequireUppercase = false;
-              options.Password.RequiredUniqueChars = 0;
-          });
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredUniqueChars = 0;
+            });
         }
 
         public void Configure(IApplicationBuilder app)
@@ -49,9 +48,7 @@ namespace PTT
             app.UseStaticFiles();
 
             app.UseDeveloperExceptionPage();
-
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -61,8 +58,11 @@ namespace PTT
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Something went wrong!");
+                await context.Response.WriteAsync("Uh-Oh A problem has occured");
             });
+
         }
     }
+
 }
+

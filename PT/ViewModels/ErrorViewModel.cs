@@ -1,6 +1,6 @@
 using System;
 
-namespace PierresTreats.Solution.Models
+namespace PT.ViewModels
 {
     public class ErrorViewModel
     {
