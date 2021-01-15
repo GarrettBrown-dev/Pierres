@@ -1,8 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Home"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@using PT.Models;
+<h1>Bonjour, and welcome to Pierre's Tasty Treat Tracker!</h1>
+<br>
+<h2>Treats logged by all taste conosseurs:</h2>
+@if (@Model["treats"].Count == 0)
+{
+    <h3>No Treats have been added yet!</h3>
+}
+@foreach (Treat treat in Model["treats"])
+{
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats",new { id = treat.TreatId}) </li>
+}
+<br>
+<p>@Html.ActionLink("See All Treats", "Index", "Treats", null, new {@class="btn btn-light btn-sm"})</p>
+<p>@Html.ActionLink("Add New Treat", "Create", "Treats", null, new {@class="btn btn-dark btn-sm"})</p>
+<br>
+<h2>Flavors</h2>
+@if (@Model["flavors"].Count == 0)
+{
+    <h3>No Flavors have been added yet!</h3>
+}
+@foreach (Flavor flavor in Model["flavors"])
+{
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId}) </li>
+}
+<br>
+<p>@Html.ActionLink("See All Flavors", "Index", "Flavors", null, new {@class="btn btn-light btn-sm"})</p>
+<p>@Html.ActionLink("Add New Flavor", "Create", "Flavors", null, new {@class="btn btn-dark btn-sm"})</p>
