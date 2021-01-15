@@ -1,0 +1,40 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PT.Models.Treat;
+<h4>@ViewBag.postAlert</h4>
+<h1>Treat Details </h1>
+<hr />
+<h3>Name: @Html.DisplayFor(model => model.TreatName)</h3>
+<hr />
+
+@if (@Model.JoinEntries.Count == 0)
+{
+  <p>This treat does not have any given flavors yet.</p>
+}
+else
+{
+  <h3>Flavors assigned to this treat:</h3>
+  <ul>
+    @foreach (var join in Model.JoinEntries)
+    {
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+      {
+      <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavor", new { id = join.Flavor.FlavorId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+      @Html.Hidden("treatId", @join.TreatId)
+      @Html.Hidden("joinId", @join.TreatFlavorId)      
+      }
+    }
+  </ul>  
+}
+
+<hr />
+<p>@Html.ActionLink("Edit this treat", "Edit", new { id = Model.TreatId }, new {@class="btn btn-light btn-sm"})
+</p>
+<div>
+  <p>@Html.ActionLink("Assign a flavor", "AddFlavor", "Treats", new { id = Model.TreatId } , new {@class="btn btn-dark btn-sm"})</p>
+</div>
+<p>@Html.ActionLink("Delete this treat", "Delete", new { id = Model.TreatId }, new {@class="btn btn-danger btn-sm"})
+</p>
+<p>@Html.ActionLink("Back to treat list", "Index", null, null, new {@class="btn btn-light btn-sm"})</p>
