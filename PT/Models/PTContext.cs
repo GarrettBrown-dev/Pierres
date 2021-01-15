@@ -10,9 +10,6 @@ namespace PT.Models
         public DbSet<TreatFlavor> TreatFlavor { get; set; }
 
         public PTContext(DbContextOptions options) : base(options) { }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseLazyLoadingProxies();
-        }
+
     }
 }
