@@ -1,6 +1,6 @@
 # _Pierres Tasty Treats_
 
-#### _An app for Pierre to market some tasty treats. Created 10/16/2020_
+#### _An app for Pierre to market some tasty treats. Created 01/15/2021_
 
 #### By _**Garrett Dean Brown**_
 
@@ -14,16 +14,14 @@ A website for the venerable Pierre to help market some new treats. Has The abili
 * There should be a many-to-many relationship between Treats and Flavors. A treat can have many flavors (such as sweet, savory, spicy, or creamy) and a flavor can have many treats. For instance, the "sweet" flavor could include chocolate croissants, cheesecake, and so on.
 * A user should be able to navigate to a splash page that lists all treats and flavors. Users should be able to click on an individual treat or flavor to see all the treats/flavors that belong to it.
 
-## Machine Object Properties
+## Treat Object Properties
 * Id
 * Name
-* Assigned Engineer
 --------
 
-## Engineer Object Properties
+## Flavor Object Properties
 * Id
 * Name
-* Licensed Machine
 
 ## Setup/Installation Requirements
 
@@ -36,21 +34,20 @@ A website for the venerable Pierre to help market some new treats. Has The abili
 
 
 * Database setup instructions:
-  * Ensure Garrett_Brown.sql was downloaded
+  * Ensure garrett_brown.sql was downloaded
   * Create an appsettings.json file
   * add localhost port, database name (garrett_brown) and your mysql password. 
-  * navigate to Factory directory.
+  * navigate to PT directory.
   * Run dotnet ef database update.
-  * Enjoy, Doctor S!
+  * Enjoy, Pierre!
 
 * Download option
-  * Download files from GitHub repository by click Code and Download Zip
+  * Download files from GitHub repository by click Code and download Zip
   * Extract files into a single directory 
   * Run GitBASH in directory
   * Navigate to PT directory.
   * Type "dotnet ef database update" in dotnet to run the program
-  * Enjoy, Doctor S!
-
+  * Enjoy, Pierre!
 
 ## Known Bugs
 
@@ -73,7 +70,7 @@ _Feel free to email me with any questions, comments, or reports!: gman9mm@live.c
 
 ### License
 
-_Copyright (c) 2020 **_{Garrett Brown}_**
+_Copyright (c) 2021 **_{Garrett Brown}_**
 _Licensed under MIT_
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
