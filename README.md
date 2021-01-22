@@ -25,14 +25,6 @@ A website for the venerable Pierre to help market some new treats. Has The abili
 
 ## Setup/Installation Requirements
 
-* Cloning options:
-  * For cloning please use the following GitHub [tutorial](https://docs.github.com/en/enterprise/2.16/user/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
-  * Place files into a single directory. (In our case, PT!)
-  * Run GitBASH in PT.
-  * Navigate to the PT directory ("cd PT" The file tree should look something like this: "\yourfiles\PierresTreats.Solution\PT")
-  * While in the PT folder, type "dotnet run" in GitBash to run the program.
-
-
 * Database setup instructions:
   * Ensure garrett_brown.sql was downloaded
   * Create an appsettings.json file
@@ -41,12 +33,21 @@ A website for the venerable Pierre to help market some new treats. Has The abili
   * Run dotnet ef database update.
   * Enjoy, Pierre!
 
+* Cloning options:
+  * For cloning please use the following GitHub [tutorial](https://docs.github.com/en/enterprise/2.16/user/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+  * Place files into a single directory. (In our case, PT!)
+  * Run GitBASH in PT.
+  * Navigate to the PT directory ("cd PT" The file tree should look something like this: "\yourfiles\PierresTreats.Solution\PT")
+  * While in the PT folder, type "dotnet run" in GitBash to run the program and click "Localhost:5000" to open up a webpage.
+  * Enjoy, Pierre!
+
 * Download option
   * Download files from GitHub repository by click Code and download Zip
   * Extract files into a single directory 
   * Run GitBASH in directory
   * Navigate to PT directory.
-  * Type "dotnet ef database update" in dotnet to run the program
+  * Type "dotnet ef database update" in GitBash to update mysql the program.
+  * Type "dotnet run" in GitBash to run the program and click "Localhost:5000" to open up a webpage!
   * Enjoy, Pierre!
 
 ## Known Bugs
@@ -64,6 +65,7 @@ _Feel free to email me with any questions, comments, or reports!: gman9mm@live.c
 * CSS
 * MySQL
 * Entity
+* Identity
 * Linq
 * MVCTest
 * MarkDown
