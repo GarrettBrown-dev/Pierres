@@ -21,8 +21,7 @@ else
     {
       @using (Html.BeginForm("DeleteTreat", "Flavors"))
       {
-        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Flavor", new { id = join.Flavor.FlavorId }) <input
-          type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+        <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treat", new { id = join.Treat.TreatId }) <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
         @Html.Hidden("flavorId", @join.FlavorId)
         @Html.Hidden("joinId", @join.TreatFlavorId)
       }
@@ -33,7 +32,9 @@ else
 <hr />
 <p>@Html.ActionLink("Edit this flavor", "Edit", new { id = Model.FlavorId }, new {@class="btn btn-light btn-sm"})
 </p>
-<p>@Html.ActionLink("Assign a treat", "AddTreat", "Flavors", new { id = Model.FlavorId }, new {@class="btn btn-dark btn-sm"})
+<div>
+  <p>@Html.ActionLink("Assign a treat", "AddTreat", "Flavors", new { id = Model.FlavorId }, new {@class="btn btn-dark btn-sm"})
+</div>
 </p>
 <p>@Html.ActionLink("Delete this flavor", "Delete", new { id = Model.FlavorId }, new {@class="btn btn-danger btn-sm"})
 </p>

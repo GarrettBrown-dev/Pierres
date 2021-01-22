@@ -21,7 +21,7 @@ else
     {
       @using (Html.BeginForm("DeleteFlavor", "Treats"))
       {
-      <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavor", new { id = join.Flavor.FlavorId })     <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
+      <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavor", new { id = join.Flavor.FlavorId }) <input type="submit" value="Remove" class="btn btn-warning btn-sm" /></li>
       @Html.Hidden("treatId", @join.TreatId)
       @Html.Hidden("joinId", @join.TreatFlavorId)      
       }

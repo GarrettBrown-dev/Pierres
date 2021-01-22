@@ -8,9 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
-using System;
-
-
 
 namespace PT.Controllers
 {
@@ -19,7 +16,6 @@ namespace PT.Controllers
     {
         private readonly PTContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
-
         public TreatsController(UserManager<ApplicationUser> userManager, PTContext db)
         {
             _userManager = userManager;

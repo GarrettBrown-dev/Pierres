@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using PT.Models;
 using System.Threading.Tasks;
 using PT.ViewModels;
+using System.Security.Claims;
+using System.Linq;
 
 namespace PT.Controllers
 {
@@ -19,10 +21,21 @@ namespace PT.Controllers
             _db = db;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentUser = await _userManager.FindByIdAsync(userId);
+                var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
+                return View(userTreats);
+            }
+            else
+            {
+                return View();
+            }
         }
+
 
         public IActionResult Register()
         {
@@ -68,6 +81,18 @@ namespace PT.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (User.Identity.IsAuthenticated)
+            {
+                var currentUser = await _userManager.FindByIdAsync(userId);
+                return View(currentUser);
+            }
+            return View();
         }
     }
 }

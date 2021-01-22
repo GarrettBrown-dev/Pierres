@@ -8,7 +8,6 @@ namespace PT.Models
         public DbSet<Treat> Treats { get; set; }
         public DbSet<Flavor> Flavors { get; set; }
         public DbSet<TreatFlavor> TreatFlavor { get; set; }
-
         public PTContext(DbContextOptions options) : base(options) { }
 
     }

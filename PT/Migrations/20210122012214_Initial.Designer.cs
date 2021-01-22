@@ -9,8 +9,8 @@ using PT.Models;
 namespace PierresTreats.Solution.Migrations
 {
     [DbContext(typeof(PTContext))]
-    [Migration("20210116004002_Another")]
-    partial class Another
+    [Migration("20210122012214_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -183,7 +183,11 @@ namespace PierresTreats.Solution.Migrations
 
                     b.Property<string>("FlavorName");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("FlavorId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Flavors");
                 });
@@ -265,6 +269,13 @@ namespace PierresTreats.Solution.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PT.Models.Flavor", b =>
+                {
+                    b.HasOne("PT.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("PT.Models.Treat", b =>
